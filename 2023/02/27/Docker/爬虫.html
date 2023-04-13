@@ -1,0 +1,1277 @@
+<hr>
+<h2 id="title-Spiderdate-2023-x2F-2-x2F-12tags-Spider-Language-Notescategories-学习笔记description-网络爬虫，也叫网络蜘蛛，是一种用来自动浏览万维网的网络机器人。其目的一般为编纂网络索引，网络搜索引擎等站点通过爬虫软件更新自身的网站内容或其对其他网站的索引。网络爬虫可以将自己所访问的页面保存下来，以便搜索引擎事后生成索引供用户搜索。爬虫访问网站的过程会消耗目标系统资源。cover-https-pic4-zhimg-com-v2-0b51b0f4b44bbdb55fbae70d14b299bf-180x120-jpg"><a href="#title-Spiderdate-2023-x2F-2-x2F-12tags-Spider-Language-Notescategories-学习笔记description-网络爬虫，也叫网络蜘蛛，是一种用来自动浏览万维网的网络机器人。其目的一般为编纂网络索引，网络搜索引擎等站点通过爬虫软件更新自身的网站内容或其对其他网站的索引。网络爬虫可以将自己所访问的页面保存下来，以便搜索引擎事后生成索引供用户搜索。爬虫访问网站的过程会消耗目标系统资源。cover-https-pic4-zhimg-com-v2-0b51b0f4b44bbdb55fbae70d14b299bf-180x120-jpg" class="headerlink" title="title: Spiderdate: 2023&#x2F;2&#x2F;12tags:- Spider- Language- Notescategories: 学习笔记description: 网络爬虫，也叫网络蜘蛛，是一种用来自动浏览万维网的网络机器人。其目的一般为编纂网络索引，网络搜索引擎等站点通过爬虫软件更新自身的网站内容或其对其他网站的索引。网络爬虫可以将自己所访问的页面保存下来，以便搜索引擎事后生成索引供用户搜索。爬虫访问网站的过程会消耗目标系统资源。cover: https://pic4.zhimg.com/v2-0b51b0f4b44bbdb55fbae70d14b299bf_180x120.jpg"></a>title: Spider<br>date: 2023&#x2F;2&#x2F;12<br>tags:<br>- Spider<br>- Language<br>- Notes<br>categories: 学习笔记<br>description: 网络爬虫，也叫网络蜘蛛，是一种用来自动浏览万维网的网络机器人。其目的一般为编纂网络索引，网络搜索引擎等站点通过爬虫软件更新自身的网站内容或其对其他网站的索引。网络爬虫可以将自己所访问的页面保存下来，以便搜索引擎事后生成索引供用户搜索。爬虫访问网站的过程会消耗目标系统资源。<br>cover: <a href="https://pic4.zhimg.com/v2-0b51b0f4b44bbdb55fbae70d14b299bf_180x120.jpg">https://pic4.zhimg.com/v2-0b51b0f4b44bbdb55fbae70d14b299bf_180x120.jpg</a></h2><h2 id="html页面结构介绍"><a href="#html页面结构介绍" class="headerlink" title="html页面结构介绍"></a>html页面结构介绍</h2><pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;Title&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;!-- table 表格
+     tr 行
+     td 列
+--&gt;
+&lt;table width=&quot;200px&quot; height=&quot;200px&quot; border=&quot;1px&quot;&gt;
+    &lt;tr&gt;
+        &lt;td&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+&lt;!-- ul li 无序列表
+     ol li 有序列表
+--&gt;
+&lt;ul&gt;
+    &lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+    &lt;li&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;!-- a 超链接
+--&gt;
+&lt;a href=&quot;http://www.xxx.com/&quot;&gt;&lt;/a&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<hr>
+<h2 id="爬虫"><a href="#爬虫" class="headerlink" title="爬虫"></a>爬虫</h2><p>如果我们把互联网比作一张大的蜘蛛网，那一台计算机上的数据便是蜘蛛网上的一个猎物，而爬虫程序就是一只小蜘蛛，沿着蜘蛛网抓取自己想要的数据</p>
+<ul>
+<li>通过一个程序，根据url进行爬取网页，获取有用信息</li>
+<li>使用程序模拟浏览器，去向服务器发送请求，获取响应信息</li>
+</ul>
+<h3 id="爬虫核心"><a href="#爬虫核心" class="headerlink" title="爬虫核心"></a>爬虫核心</h3><p>爬取网页：爬取整个网页，包含网页的所有内容</p>
+<p>解析数据：将网页中你所得到的数据进行解析</p>
+<p>难点：爬虫和反爬虫之间的博弈</p>
+<h3 id="爬虫用途"><a href="#爬虫用途" class="headerlink" title="爬虫用途"></a>爬虫用途</h3><p>数据分析&#x2F;人工数据集</p>
+<p>社交软件冷启动</p>
+<p>舆情监控</p>
+<p>竞争对手监控</p>
+<h3 id="爬虫分类"><a href="#爬虫分类" class="headerlink" title="爬虫分类"></a>爬虫分类</h3><p><strong>通用爬虫：</strong></p>
+<ul>
+<li>实例：百度、360、google等搜索引擎</li>
+<li>功能：访问页面、抓取数据、数据存储、数据处理、提供检索服务</li>
+<li>robots协议：<ul>
+<li>一个约定俗成的协议，添加robots.txt文件，来说明本网站哪些内容不可以被抓取，起不到限制作用</li>
+<li>自己写的爬虫无需遵守</li>
+</ul>
+</li>
+<li>网络排名：<ul>
+<li>根据pagerank算法进行排名（参考各网站流量、点击率等指标）</li>
+<li>百度竞价排名</li>
+</ul>
+</li>
+<li>确定：<ul>
+<li>抓取的数据多数无用</li>
+<li>不能根据用户需求来精准获取数据</li>
+</ul>
+</li>
+</ul>
+<p><strong>聚焦爬虫：</strong></p>
+<ul>
+<li>功能：根据需求实现爬虫，抓取需要的数据</li>
+<li>设计思路：<ul>
+<li>确定要爬取的url</li>
+<li>模拟浏览器通过http协议访问url，获取服务器返回的html代码</li>
+<li>解析html字符串（根据一定规则提取需要的数据）</li>
+</ul>
+</li>
+</ul>
+<h3 id="反爬手段"><a href="#反爬手段" class="headerlink" title="反爬手段"></a>反爬手段</h3><ul>
+<li><p>User-Agent：中文名为用户代理，简称UA，它是一个特殊字符串头，使得服务器能够识别客户使用的操作系统及版本、CPU类型、浏览器及版本、浏览器渲染引擎、浏览器语言、浏览器插件等</p>
+</li>
+<li><p>代理IP：西次代理、快代理</p>
+</li>
+<li><p>什么是高匿名、匿名和透明代理？它们有什么区别？</p>
+<ul>
+<li>使用透明代理，对方服务器可以知道你使用了代理，并且也知道你的真实IP</li>
+<li>使用匿名代理，对方服务器可以知道你使用了代理，但不知道你的真实IP</li>
+<li>使用高匿名代理，对方服务器不知道你使用了代理，更不知道你的真实IP</li>
+</ul>
+</li>
+<li><p>验证码访问</p>
+</li>
+<li><p>动态加载网页：网页返回的是js数据，并不是网页的真是数据</p>
+</li>
+<li><p>数据加密</p>
+</li>
+</ul>
+<hr>
+<h2 id="urllib"><a href="#urllib" class="headerlink" title="urllib"></a>urllib</h2><h3 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h3><pre><code class="python"># 使用urllib获取百度首页的源码
+import urllib.request
+
+# 定义一个url 访问地址
+url = &#39;http://www.baidu.com&#39;
+
+# 模拟浏览器向服务器发送请求 response响应
+response = urllib.request.urlopen(url)
+
+# 获取响应中页面的源码
+# read方法返回的是字节形式的二进制数据
+# 将二进制数据转换为字符串
+# 二进制-&gt;字符串 (解码) decode(&#39;编码格式&#39;)
+content = response.read().decode(&#39;utf-8&#39;)
+
+# 打印数据
+print(content)
+</code></pre>
+<h3 id="常用类型和方法"><a href="#常用类型和方法" class="headerlink" title="常用类型和方法"></a>常用类型和方法</h3><pre><code class="python">response = urllib.request.urlopen(url)
+print(type(response))
+# response为HTTPResponse类型
+</code></pre>
+<pre><code class="python"># 按照一个字节一个字节的读,返回5个字节
+content1 = response.read(5)
+
+# 按照一行一行读
+content2 = response.readline()
+
+# 按照一行一行读直到读完
+content3 = response.readlines()
+
+# 获取状态码,如果是200证明没有问题
+code = response.getcode()
+
+# 获取url地址
+url = response.geturl()
+
+# 获取状态信息(响应头)
+headers = response.getheaders()
+</code></pre>
+<h3 id="下载到本地"><a href="#下载到本地" class="headerlink" title="下载到本地"></a>下载到本地</h3><pre><code class="python"># 下载网页urlretrieve(url, filename)传入下载路径及文件名
+urllib.request.urlretrieve(url=url, filename=&#39;baidu.html&#39;)
+# 下载图片
+url_img = &#39;图片地址&#39;
+urllib.request.urlretrieve(url=url_img, filename=&#39;xx.jpg&#39;)
+# 下载视频
+url_video = &#39;视频地址&#39;
+urllib.request.urlretrieve(url=url_video, filename=&#39;xx.mp4&#39;)
+</code></pre>
+<h3 id="请求对象定制"><a href="#请求对象定制" class="headerlink" title="请求对象定制"></a>请求对象定制</h3><p>url组成<code>https://www.baidu.com/s?wd=xxx</code></p>
+<ul>
+<li>协议：http&#x2F;https</li>
+<li>主机：<a href="http://www.baidu.com/">www.baidu.com</a></li>
+<li>端口号：http80、https443、mysql3306、redis6379、oracle1521、mongodb27017等</li>
+<li>路径：s</li>
+<li>参数：wd&#x3D;xxx</li>
+<li>锚点：#</li>
+</ul>
+<pre><code class="python"># User-Agent：中文名为用户代理，简称UA，它是一个特殊字符串头，使得服务器能够识别客户使用的操作系统及版本、CPU类型、浏览器及版本、浏览器渲染引擎、浏览器语言、浏览器插件等
+import urllib.request
+
+url = &#39;https://www.baidu.com&#39;
+
+headers = {
+    &#39;User-Agent&#39;: &#39;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36&#39;}
+
+# 因为urlopen中不能存储字典,所以headers需要转为字典类型
+# 请求对象的定制
+request = urllib.request.Request(url=url, headers=headers)
+
+# 模拟浏览器向服务器发送请求
+response = urllib.request.urlopen(request)
+content = response.read().decode(&#39;utf-8&#39;)
+print(content)
+</code></pre>
+<h3 id="编解码"><a href="#编解码" class="headerlink" title="编解码"></a>编解码</h3><h4 id="GRT请求方式：urllib-parse-quote"><a href="#GRT请求方式：urllib-parse-quote" class="headerlink" title="GRT请求方式：urllib.parse.quote()"></a>GRT请求方式：urllib.parse.quote()</h4><pre><code class="python">import urllib.request, urllib.parse
+
+url = &#39;https://www.baidu.com/s?wd=&#39;
+# 使用quote方法将汉字编程unicode编码
+name = urllib.parse.quote(&#39;周杰伦&#39;)
+
+# 请求资源路径
+url = url + name
+
+headers = {
+    &#39;User-Agent&#39;: &#39;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36&#39;}
+
+# 请求对象定制
+request = urllib.request.Request(url=url, headers=headers)
+
+# 模拟浏览器向服务器发送请求
+response = urllib.request.urlopen(request)
+content = response.read().decode(&#39;utf-8&#39;)
+print(content)
+</code></pre>
+<h4 id="GET请求方式：urllib-parse-urlencode"><a href="#GET请求方式：urllib-parse-urlencode" class="headerlink" title="GET请求方式：urllib.parse.urlencode()"></a>GET请求方式：urllib.parse.urlencode()</h4><p>在实际开发过程中遇到较长url，使用quote非常麻烦</p>
+<pre><code class="python">import urllib.request, urllib.parse
+
+# https://www.baidu.com/s?wd=周杰伦&amp;sex=男&amp;location=中国台湾省
+url = &#39;https://www.baidu.com/s?&#39;
+
+# urlencode应用
+data = {
+    &#39;wd&#39;: &#39;周杰伦&#39;,
+    &#39;sex&#39;: &#39;男&#39;,
+    &#39;location&#39;: &#39;中国台湾省&#39;
+}
+new_data = urllib.parse.urlencode(data)
+
+# 请求资源路径
+url = url + new_data
+
+headers = {
+    &#39;User-Agent&#39;: &#39;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36&#39;}
+
+# 请求对象定制
+request = urllib.request.Request(url=url, headers=headers)
+
+# 模拟浏览器向服务器发送请求
+response = urllib.request.urlopen(request)
+content = response.read().decode(&#39;utf-8&#39;)
+print(content)
+</code></pre>
+<h4 id="POST请求方式"><a href="#POST请求方式" class="headerlink" title="POST请求方式"></a>POST请求方式</h4><p>post请求方式的参数必须进行编码，<code>data = urllib.parse.urlencode(data)</code></p>
+<p>编码之后必须调用encode方法，<code>data = urllib.parse.urlencode(data).encode(&#39;utf-8&#39;)</code></p>
+<p>参数是放在请求对象定制的方法中，<code>request = urllib.request.Request(url=url, data=data, headers=headers)</code></p>
+<pre><code class="python">import urllib.request, urllib.parse
+
+# post请求
+url = &#39;https://fanyi.baidu.com/sug&#39;
+
+# 模拟浏览器向服务器发送请求
+headers = {
+    &#39;User-Agent&#39;: &#39;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36&#39;
+}
+
+data = {
+    &#39;kw&#39;: &#39;spider&#39;
+}
+# post请求的参数必须进行编码,其必须为为bytes类型
+data = urllib.parse.urlencode(data).encode(&#39;utf-8&#39;)
+
+# post请求的参数不会拼接在url后,而是需要放在请求对象定制的参数中
+request = urllib.request.Request(url=url, data=data, headers=headers)
+
+# 模拟浏览器想服务器发送请求
+response = urllib.request.urlopen(request)
+content = response.read().decode(&#39;utf-8&#39;)
+print(content)
+</code></pre>
+<h3 id="ajax"><a href="#ajax" class="headerlink" title="ajax"></a>ajax</h3><h4 id="GET请求"><a href="#GET请求" class="headerlink" title="GET请求"></a>GET请求</h4><pre><code class="python"># 下载豆瓣电影动作片排行榜中第一页数据
+import urllib.request
+import urllib.parse
+
+url = &#39;https://movie.douban.com/j/chart/top_list?type=5&amp;interval_id=100%3A90&amp;action=&amp;start=0&amp;limit=20&#39;
+headers = {
+    &#39;User-Agent&#39;: &#39;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36&#39;
+}
+
+# 请求对象定制
+request = urllib.request.Request(url=url, headers=headers)
+
+# 获取响应数据
+response = urllib.request.urlopen(request)
+content = response.read().decode(&#39;utf-8&#39;)
+
+# 数据下载到本地
+# open默认情况使用GBK编码,如果我们需要在open方法中指定编码格式为utf-8,encoding=&#39;utf-8&#39;
+with open(&#39;douban.json&#39;, &#39;w&#39;, encoding=&#39;utf-8&#39;) as fp:
+    fp.write(content)
+</code></pre>
+<pre><code class="python"># 下载豆瓣电影动作片排行榜中前十页数据
+import urllib.request
+import urllib.parse
+
+
+def create_request(page):
+    base_url = &#39;https://movie.douban.com/j/chart/top_list?type=5&amp;interval_id=100%3A90&amp;action=&amp;&#39;
+
+    data = {
+        &#39;start&#39;: (page - 1) * 20,
+        &#39;limit&#39;: 20
+    }
+    data = urllib.parse.urlencode(data)
+    url = base_url + data
+    headers = {
+        &#39;User-Agent&#39;: &#39;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36&#39;
+    }
+
+    # 请求对象定制
+    request = urllib.request.Request(url=url, headers=headers)
+    return request
+
+
+def get_content(request):
+    response = urllib.request.urlopen(request)
+    content = response.read().decode(&#39;utf-8&#39;)
+    return content
+
+
+def download(content, page):
+    with open(&#39;douban&#39; + str(page) + &#39;.json&#39;, &#39;w&#39;, encoding=&#39;utf-8&#39;) as fp:
+        fp.write(content)
+
+
+if __name__ == &#39;__main__&#39;:
+    start_page = int(input(&#39;请输入起始的页码:&#39;))
+    end_page = int(input(&#39;请输入结束的页码:&#39;))
+    for page in range(start_page, end_page + 1):
+        # 每一页都有请求对象的定制
+        request = create_request(page)
+        # 获取响应数据
+        content = get_content(request)
+        # 数据下载到本地
+        download(content, page)
+</code></pre>
+<h4 id="POST请求"><a href="#POST请求" class="headerlink" title="POST请求"></a>POST请求</h4><p>在headers中出现<code>X-Requested-With:XMLHttpRequest</code>说明该请求为ajax请求</p>
+<pre><code class="python"># 下载kfc官网中北京地区的门店前10页数据
+import urllib.request
+import urllib.parse
+
+
+def create_request(page):
+    url = &#39;https://www.kfc.com.cn/kfccda/ashx/GetStoreList.ashx?op=cname&#39;
+
+    data = {
+        &#39;cname&#39;: &#39;北京&#39;,
+        &#39;pid&#39;: &#39;&#39;,
+        &#39;pageIndex&#39;: page,
+        &#39;pageSize&#39;: 10
+    }
+
+    # post请求必须进行编码
+    data = urllib.parse.urlencode(data).encode(&#39;utf-8&#39;)
+
+    headers = {
+        &#39;User-Agent&#39;: &#39;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36&#39;
+    }
+
+    # 请求对象定制
+    request = urllib.request.Request(url=url, data=data, headers=headers)
+    return request
+
+
+def get_content(request):
+    response = urllib.request.urlopen(request)
+    content = response.read().decode(&#39;utf-8&#39;)
+    return content
+
+
+def download(content, page):
+    with open(&#39;kfc&#39; + str(page) + &#39;.json&#39;, &#39;w&#39;, encoding=&#39;utf-8&#39;) as fp:
+        fp.write(content)
+
+
+if __name__ == &#39;__main__&#39;:
+    start_page = int(input(&#39;请输入起始的页码:&#39;))
+    end_page = int(input(&#39;请输入结束的页码:&#39;))
+    for page in range(start_page, end_page + 1):
+        # 每一页都有请求对象的定制
+        request = create_request(page)
+        # 获取响应数据
+        content = get_content(request)
+        # 数据下载到本地
+        download(content, page)
+</code></pre>
+<h3 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h3><p>URLError类是HttpError类的子类</p>
+<p>导入的包<code>urllib.error</code>中的urllib.error.HttpError，urllib.error.URLError</p>
+<p>http错误：http错误时针对浏览器无法连接到服务器而增加出来的错误提示。引导并告诉浏览器该页是哪里出了问题</p>
+<p>通过urllib发送请求的时候，有可能会发送失败，这个时候如果想让代码更加健壮，可以通过try-except进行捕获异常，异常有两类URLError、HttpError</p>
+<h3 id="cookie登录"><a href="#cookie登录" class="headerlink" title="cookie登录"></a>cookie登录</h3><p>适用的场景：在数据采集时候，需要绕过登录，进入到某个页面</p>
+<pre><code class="python"># 爬取微博用户个人信息页面的数据
+# 个人信息页面是utf-8,但是在爬取内容时依旧报错(编码错误),因为没有进入个人信息页面,而是进入了登录页面,登录页面不是utf-8
+# 在请求头中的cookie中携带了登录信息
+# referer起图片防盗链功能,判断路径是不是由上一个而来
+import urllib.request
+import urllib.parse
+
+url = &#39;https://weibo.cn/.../info&#39;
+
+headers = {
+    # 浏览器中的request headers获取
+    ...
+}
+
+# 请求对象定制
+request = urllib.request.Request(url=url, headers=headers)
+
+response = urllib.request.urlopen(request)
+content = response.read().decode(&#39;utf-8&#39;)
+
+with open(&#39;weibo.html&#39;, &#39;w&#39;, encoding=&#39;utf-8&#39;) as fp:
+    fp.write(content)
+</code></pre>
+<h3 id="Handler处理器"><a href="#Handler处理器" class="headerlink" title="Handler处理器"></a>Handler处理器</h3><p>为什么需要handler处理器</p>
+<p><code>urllib.request.Request(url=url, data=data, headers=headers)</code>可以定制请求头</p>
+<p><code>urllib.request.urlopen(url)</code>不能定制请求头</p>
+<p>Handler定制更高级的请求头（随着业务逻辑的复杂，请求对象的定制已经满足不了我们的需求（动态cookie和代理不能使用请求对象的定制））</p>
+<h4 id="基本使用-1"><a href="#基本使用-1" class="headerlink" title="基本使用"></a>基本使用</h4><pre><code class="python"># 使用handler来访问百度,获取网页原码
+import urllib.request
+url = &#39;http://www.baidu.com&#39;
+
+headers = {
+    &#39;user-agent&#39;: &#39;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36&#39;
+}
+
+request = urllib.request.Request(url=url, headers=headers)
+
+# 获取handler对象
+handler = urllib.request.HTTPHandler()
+
+# 获取opener对象
+opener = urllib.request.build_opener(handler)
+
+# 调用open方法
+response = opener.open(request)
+
+content = response.read().decode(&#39;utf-8&#39;)
+
+print(content)
+</code></pre>
+<h4 id="代理服务器"><a href="#代理服务器" class="headerlink" title="代理服务器"></a>代理服务器</h4><p>代理的常用功能：</p>
+<ul>
+<li>突破自身的IP访问限制，访问国外站点</li>
+<li>访问一些单位或团体内部资源</li>
+<li>提高访问速度（通常代理服务器设置一个较大的硬盘缓冲区，当有外界信息通过时，同时也将其保存到缓冲区中，当其他用户再访问相同信息时，则直接由缓冲区中取出信息传给用户）</li>
+<li>隐藏真实IP（上网者也可以通过这种方式隐藏自己的IP，免收攻击）</li>
+</ul>
+<p>代码配置代理：</p>
+<ul>
+<li>创建Request对象</li>
+<li>创建ProxyHandler对象</li>
+<li>用handler对象创建opener对象</li>
+<li>使用opener.open函数发送请求</li>
+</ul>
+<pre><code class="python"># 使用代理访问百度页面
+import urllib.request
+
+url = &#39;http://www.baidu.com/s?wd=ip&#39;
+
+headers = {
+    &#39;user-agent&#39;: &#39;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36&#39;
+}
+
+# 请求对象定制
+request = urllib.request.Request(url=url, headers=headers)
+
+poxies = {
+    &#39;http&#39;: &#39;代理ip地址:端口号&#39;
+}
+# 获取handler对象
+handler = urllib.request.ProxyHandler(proxies=poxies)
+
+# 获取opener对象
+opener = urllib.request.build_opener(handler)
+
+# 调用open方法
+response = opener.open(request)
+
+content = response.read().decode(&#39;utf-8&#39;)
+
+with open(&#39;daili.html&#39;, &#39;w&#39;) as fp:
+    fp.write(content)
+</code></pre>
+<h4 id="代理池"><a href="#代理池" class="headerlink" title="代理池"></a>代理池</h4><p>在爬取过程中，如果ip被封则会出现很大困扰，一般我们使用代理池来解决</p>
+<pre><code class="python"># 使用代理池中不同代理
+import urllib.request
+import random
+
+url = &#39;http://www.baidu.com/s?wd=ip&#39;
+
+headers = {
+    &#39;user-agent&#39;: &#39;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36&#39;
+}
+
+# 请求对象定制
+request = urllib.request.Request(url=url, headers=headers)
+
+# 自定义代理池
+proxies_pool = [
+    {&#39;http&#39;: &#39;代理ip地址:端口号&#39;},
+    {&#39;http&#39;: &#39;代理ip地址:端口号&#39;}
+]
+proxies = random.choice(proxies_pool)
+
+# 获取handler对象
+handler = urllib.request.ProxyHandler(proxies=proxies)
+
+# 获取opener对象
+opener = urllib.request.build_opener(handler)
+
+# 调用open方法
+response = opener.open(request)
+
+content = response.read().decode(&#39;utf-8&#39;)
+
+with open(&#39;daili.html&#39;, &#39;w&#39;) as fp:
+    fp.write(content)
+</code></pre>
+<h4 id="cookie库"><a href="#cookie库" class="headerlink" title="cookie库"></a>cookie库</h4><hr>
+<h2 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h2><h3 id="xpath"><a href="#xpath" class="headerlink" title="xpath"></a>xpath</h3><p>xpath使用：需要安装xpath-helper插件（chrome浏览器扩展程序）重启浏览器后ctrl+shift+x出现小黑框</p>
+<ul>
+<li>安装lxml库：<code>pip install lxml</code></li>
+<li>导入lxml.etree：<code>from lxml import etree</code></li>
+<li>解析本地文件：<code>html_tree = etree.parse(&#39;xx.html&#39;)</code></li>
+<li>解析服务器响应文件：<code>html_tree = etree.HTML(response.read().decode(&#39;utf-8&#39;))</code></li>
+<li><code>html_tree.xpath(xpath路径)</code></li>
+</ul>
+<p>xpath基本语法：</p>
+<ul>
+<li>路径查询：<ul>
+<li>&#x2F;&#x2F;：查询所有子孙节点，不考虑层级关系</li>
+<li>&#x2F;：找直接子节点</li>
+</ul>
+</li>
+<li>谓词查询：<ul>
+<li><code>//div[@id]</code></li>
+<li><code>//div[@id=&quot;maincontent&quot;]</code></li>
+</ul>
+</li>
+<li>属性查询：<code>//@class</code></li>
+<li>模糊查询：<ul>
+<li>包含xx的：<code>//div[contains(@id,&#39;xx&#39;)]</code></li>
+<li>以xx开头的：<code>//div[starts-with(@id,&#39;xx&#39;)]</code></li>
+</ul>
+</li>
+<li>内容查询：<code>//div/h1/text()</code></li>
+<li>逻辑运算：极少用到<ul>
+<li>并且（and）：<code>//div[@id=&#39;head&#39; and @class=&#39;s_down&#39;]</code></li>
+<li>或（|）<code>//title | //price</code></li>
+</ul>
+</li>
+</ul>
+<pre><code class="python">import urllib.request
+from lxml import etree
+
+url = &#39;http://www.baidu.com&#39;
+
+headers = {
+    &#39;User-Agent&#39;: &#39;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36&#39;
+}
+
+request = urllib.request.Request(url=url, headers=headers)
+response = urllib.request.urlopen(request)
+content = response.read().decode(&#39;utf-8&#39;)
+# 解析网页源码
+# 解析服务器响应文件
+tree = etree.HTML(content)
+
+# 获取想要的数据
+# xpath的返回值是一个列表类型的数据
+result = tree.xpath(&#39;//input[@id=&quot;su&quot;]/@value&#39;)
+print(result)
+</code></pre>
+<pre><code class="python"># 爬取图片素材
+import urllib.request
+from lxml import etree
+
+
+def creat_request(page):
+    if page == 1:
+        url = &#39;&#39;
+    else:
+        url = &#39;&#39;
+
+    headers = {
+        &#39;User-Agent&#39;: &#39;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36&#39;
+    }
+    request = urllib.request.Request(url=url, headers=headers)
+    return request
+
+
+def get_content(request):
+    response = urllib.request.urlopen(request)
+    content = response.read().decode(&#39;utf-8&#39;)
+    return content
+
+
+def down_img(content):
+    # 解析网页源码
+    # 解析服务器响应文件
+    tree = etree.HTML(content)
+    # 一般设计到图片的网页都涉及&#39;懒&#39;加载,需要使用懒加载之前数据获取
+    src_list = tree.xpath(&#39;&#39;)
+    name_list = tree.xpath(&#39;&#39;)
+    for i in range(len(name_list)):
+        name = name_list[i]
+        src = src_list[i]
+        url = &#39;https:&#39; + src
+        # 下载图片
+        urllib.request.urlretrieve(url=url, filename=&#39;./img/&#39; + name + &#39;.jpg&#39;)
+
+
+if __name__ == &#39;__main__&#39;:
+    start_page = int(input(&#39;请输入起始页码:&#39;))
+    end_page = int(input(&#39;请输入结束页码:&#39;))
+    for page in range(start_page, end_page + 1):
+        # 请求对象定制
+        request = creat_request(page)
+        content = get_content(request)
+        down_img(content)
+</code></pre>
+<h3 id="jsonpath"><a href="#jsonpath" class="headerlink" title="jsonpath"></a>jsonpath</h3><p>jsonpath使用：</p>
+<ul>
+<li>pip安装：<code>pip install jsonpath</code></li>
+<li>jsonpath使用：<ul>
+<li><code>obj = json.load(open(&#39;json文件&#39;, &#39;r&#39;, encoding=&#39;utf-8&#39;))</code></li>
+<li><code>ret = jsonpath.jsonpath(obj, &#39;jsonpath语法&#39;)</code></li>
+</ul>
+</li>
+</ul>
+<p>jsonpath只能解析本地文件</p>
+<table>
+<thead>
+<tr>
+<th align="center">XPath</th>
+<th align="center">JSONPath</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">&#x2F;</td>
+<td align="center">$</td>
+<td>表示根元素</td>
+</tr>
+<tr>
+<td align="center">.</td>
+<td align="center">@</td>
+<td>当前元素</td>
+</tr>
+<tr>
+<td align="center">&#x2F;</td>
+<td align="center">. or []</td>
+<td>子元素</td>
+</tr>
+<tr>
+<td align="center">..</td>
+<td align="center">n&#x2F;a</td>
+<td>父元素</td>
+</tr>
+<tr>
+<td align="center">&#x2F;&#x2F;</td>
+<td align="center">..</td>
+<td>递归下降</td>
+</tr>
+<tr>
+<td align="center">*</td>
+<td align="center">*</td>
+<td>通配符，表示所有元素</td>
+</tr>
+<tr>
+<td align="center">@</td>
+<td align="center">n&#x2F;a</td>
+<td>属性访问字符</td>
+</tr>
+<tr>
+<td align="center">[]</td>
+<td align="center">[]</td>
+<td>子元素操作符</td>
+</tr>
+<tr>
+<td align="center">|</td>
+<td align="center">[,]</td>
+<td>连接操作符，在XPath结果合并其他节点集合，JSONPath允许name或者数组索引</td>
+</tr>
+<tr>
+<td align="center">n&#x2F;a</td>
+<td align="center">[start: end:step]</td>
+<td>数组分割操作</td>
+</tr>
+<tr>
+<td align="center">[]</td>
+<td align="center">?()</td>
+<td>应用过滤表达式</td>
+</tr>
+<tr>
+<td align="center">n&#x2F;a</td>
+<td align="center">()</td>
+<td>脚本表达式，使用在脚本引擎下面</td>
+</tr>
+<tr>
+<td align="center">()</td>
+<td align="center">n&#x2F;a</td>
+<td>XPath分组</td>
+</tr>
+</tbody></table>
+<pre><code class="python"># 通过json解析淘票票网站首页的城市信息
+import urllib.request
+import json
+import jsonpath
+
+url = &#39;https://dianying.taobao.com/cityAction.json?activityId&amp;_ksTS=1675923454318_404&amp;jsoncallback=jsonp405&amp;action=cityAction&amp;n_s=new&amp;event_submit_doGetAllRegion=truehttps://dianying.taobao.com/cityAction.json?activityId&amp;_ksTS=1675923454318_404&amp;jsoncallback=jsonp405&amp;action=cityAction&amp;n_s=new&amp;event_submit_doGetAllRegion=true&#39;
+
+headers = {
+    
+}
+
+request = urllib.request.Request(url=url, headers=headers)
+response = urllib.request.urlopen(request)
+content = response.read().decode(&#39;utf-8&#39;)
+# 处理成为标准的json文件
+content = content.split(&#39;(&#39;)[1].split(&#39;)&#39;)[0]
+# 写入本地文件
+with open(&#39;city.json&#39;, &#39;w&#39;, encoding=&#39;utf-8&#39;) as fp:
+    fp.write(content)
+
+obj = json.load(open(&#39;city.json&#39;,&#39;r&#39;, encoding=&#39;utf-8&#39;))
+city_list = jsonpath.jsonpath(obj, &#39;$..regionName&#39;)
+print(city_list)
+</code></pre>
+<h3 id="BeautifulSoup"><a href="#BeautifulSoup" class="headerlink" title="BeautifulSoup"></a>BeautifulSoup</h3><p>简称为bs4，与lxml一样，是一个html的解析器，主要功能也是解析和提取数据</p>
+<p>优点：接口设计人性化，使用方便</p>
+<p>缺点：效率没有lxml的效率高</p>
+<p>bs4的使用：</p>
+<ul>
+<li><p>安装：<code>pip install bs4</code></p>
+</li>
+<li><p>导包：<code>from bs4 import BeautifulSoup</code></p>
+</li>
+<li><p>创建对象：</p>
+<ul>
+<li><p>服务器响应的文件生成对象：<code>soup = BeautifulSoup(response.read().decode(&#39;utf-8&#39;), &#39;lxml&#39;)</code></p>
+</li>
+<li><p>本地文件生成对象：<code>soup = BeautifulSoup(open(&#39;xx.html&#39;), &#39;lxml&#39;)</code></p>
+<p>注意默认打开文件的编码格式gbk，所以需要指定打开的编码格式</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>基本语法：</p>
+<ul>
+<li><p>根据标签名查找节点：<code>soup.a</code>只能找到第一个a，<code>soup.a.attrs</code>返回a中的属性值作为字典类型</p>
+</li>
+<li><p>函数：</p>
+<ul>
+<li><p>返回一个对象：<code>find()</code></p>
+<p><code>find(&#39;a&#39;)</code>只能找到第一个a标签</p>
+<p><code>find(&#39;a&#39;,title=&#39;xx&#39;)</code></p>
+<p><code>find(&#39;a&#39;,class_=&#39;xx&#39;)</code></p>
+</li>
+<li><p>返回一个列表：<code>find_all()</code></p>
+<p><code>find_all(&#39;a&#39;)</code>找到所有的a标签</p>
+<p><code>find_all([&#39;a&#39;, &#39;span&#39;])</code>返回所有的a和span标签</p>
+<p><code>find_all(&#39;a&#39;, limit=2)</code>只找前两个a</p>
+</li>
+<li><p>根据选择器得到节点对象（推荐）：<code>select</code></p>
+<p><code>select(&#39;a&#39;)</code>找到所有的a标签</p>
+<p><code>select(&#39;.a1&#39;)</code>找到class的值为a1的标签（类选择器）</p>
+<p><code>select(&#39;#l1&#39;)</code>找到id的值l1的标签</p>
+<p><code>select(&#39;li[id]&#39;)</code>找到li中有id的标签（属性选择器）</p>
+<p>空格（后代）、大于（子代）、逗号（同级）（层级选择器）</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>节点信息：</p>
+<ul>
+<li>获取节点内容：适用于标签中嵌套标签的结构<code>obj.get_text()</code></li>
+<li>节点的属性</li>
+<li>获取节点属性：</li>
+</ul>
+<pre><code class="python"># 爬取星巴克的菜单的商品图片及商品名称,并保存到本地
+from urllib import request
+from bs4 import BeautifulSoup
+
+url = &#39;https://www.starbucks.com.cn/menu/&#39;
+headers = {
+    &#39;User-Agent&#39;: &#39;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36&#39;
+}
+
+req = request.Request(url=url, headers=headers)
+response = request.urlopen(req)
+content = response.read().decode(&#39;utf-8&#39;)
+soup = BeautifulSoup(content, &#39;lxml&#39;)
+
+# //ul[@class=&#39;grid padded-3 product&#39;]//strong/text()
+name_list = soup.select(&#39;ul[class=&quot;grid padded-3 product&quot;] strong&#39;)
+for name in name_list:
+    print(name.get_text())
+</code></pre>
+<hr>
+<h2 id="Selenium"><a href="#Selenium" class="headerlink" title="Selenium"></a>Selenium</h2><ul>
+<li>Selenium是一个用于Web应用程序测试的工具</li>
+<li>Selenium测试直接运行在浏览器中，就想真正的用户在操作一样</li>
+<li>直接通过各种driver（FirfoxDriver、InternetExplorerDriver、OperaDriver、ChromeDriver）驱动真是浏览器完成测试</li>
+<li>Selenium也是支持无界面浏览器操作的</li>
+</ul>
+<p>模拟浏览器功能，自动执行网页中的js代码，实现动态加载</p>
+<h3 id="基本使用-2"><a href="#基本使用-2" class="headerlink" title="基本使用"></a>基本使用</h3><pre><code class="python">from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+
+# 创建浏览器操作对象
+service = Service(r&#39;D:\Code\Python\pythonSpiderTest\chromedriver.exe&#39;)
+driver = webdriver.Chrome(service=service)
+
+# 访问网站
+url = &#39;https://www.jd.com/&#39;
+driver.get(url)
+content = driver.page_source
+print(content)
+</code></pre>
+<h3 id="元素定位"><a href="#元素定位" class="headerlink" title="元素定位"></a>元素定位</h3><p>自动化要做的就是模拟鼠标和键盘类操作这些元素，点击、输入等等。操作这些元素前首先要找到它们，WebDriver提供很多定位元素的方法</p>
+<ul>
+<li>利用ID查找：<code>find_element(By.ID, &quot;value&quot;)</code></li>
+<li>利用类名查找：<code>find_element(By.CLASS_NAME, &quot;value&quot;)</code></li>
+<li>利用name属性查找：<code>find_elements(By.NAME, &quot;value&quot;)</code></li>
+<li>利用xpath查找：<code>find_element(By.XPATH, &quot;value&quot;)</code></li>
+<li>利用标签名查找：<code>find_elements(By.TAG_NAME, &quot;value&quot;)</code></li>
+<li>利用CSS选择器查找：<code>find_elements(By.CSS_SELETOR, &quot;value&quot;)</code></li>
+</ul>
+<h3 id="元素信息"><a href="#元素信息" class="headerlink" title="元素信息"></a>元素信息</h3><ul>
+<li>获取元素属性：<code>get_attribute(&#39;class&#39;)</code></li>
+<li>获取元素文本：<code>text</code></li>
+<li>获取id：<code>id</code></li>
+<li>获取标签名：<code>tag_name</code></li>
+</ul>
+<h3 id="交互"><a href="#交互" class="headerlink" title="交互"></a>交互</h3><ul>
+<li><p>点击：<code>click()</code></p>
+</li>
+<li><p>输入：<code>send_keys()</code></p>
+</li>
+<li><p>后退操作：<code>driver.back()</code></p>
+</li>
+<li><p>前进操作：<code>driver.forword()</code></p>
+</li>
+<li><p>模拟JS滚动：</p>
+<p><code>js=&#39;document.documentElement.scrollTop=100000&#39;</code></p>
+<p><code>driver.execute_script(js)</code>执行JS代码</p>
+</li>
+<li><p>获取网页代码：<code>page_source</code></p>
+</li>
+<li><p>退出：<code>driver.quit()</code></p>
+</li>
+</ul>
+<pre><code class="python"># 模拟浏览器进入baidu.com、搜索周杰伦、进入下一页、退回上一页、前进、退出
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.common.by import By
+import time
+
+# 创建浏览器操作对象
+service = Service(executable_path=&#39;D:\Code\Python\pythonSpiderTest\chromedriver.exe&#39;)
+driver = webdriver.Chrome(service=service)
+
+# 访问网站
+url = &#39;https://www.baidu.com/&#39;
+driver.get(url)
+# 休眠
+time.sleep(2)
+
+# 输入框定位
+input = driver.find_element(By.ID, &#39;kw&#39;)
+# 输入内容
+input.send_keys(&#39;周杰伦&#39;)
+# 休眠
+time.sleep(2)
+
+# 获取百度一下按钮
+button = driver.find_element(By.ID, &#39;su&#39;)
+# 点击按钮
+button.click()
+# 休眠
+time.sleep(2)
+
+# 向下滑动
+js = &#39;document.documentElement.scrollTop = 100000&#39;
+driver.execute_script(js)
+# 休眠
+time.sleep(2)
+
+# 定位下一页
+button = driver.find_element(By.XPATH, &#39;//a[@class=&quot;n&quot;]&#39;)
+# 点击下一页
+button.click()
+# 休眠
+time.sleep(2)
+
+# 退回上一页
+driver.back()
+time.sleep(2)
+# 回到下一页
+driver.forward()
+time.sleep(2)
+
+# 退出
+driver.quit()
+</code></pre>
+<h3 id="Phantomjs"><a href="#Phantomjs" class="headerlink" title="Phantomjs"></a>Phantomjs</h3><p>目前不常使用</p>
+<ul>
+<li>一个无界面的浏览器</li>
+<li>支持页面元素查找，js的执行等</li>
+<li>由于不进行css和gui渲染，运行效率要比真实的浏览器快很多</li>
+</ul>
+<p>使用Phantomjs：</p>
+<ul>
+<li>获取PhantomJS.exe文件路径path</li>
+<li><code>driver = webdriver.PhantomJS(path)</code></li>
+<li><code>driver = get(url)</code></li>
+<li>保存屏幕快照：<code>driver.save_screenshot(&#39;xx.png&#39;)</code></li>
+</ul>
+<h3 id="Chrome-handless"><a href="#Chrome-handless" class="headerlink" title="Chrome handless"></a>Chrome handless</h3><p>Chrome-handless模式，Google针对Chrome浏览器59版新增的一种模式，可以在不打开UI界面的情况下使用Chrome</p>
+<p>系统要求：</p>
+<ul>
+<li><p>Linux&#x2F;Unix需要chrome&gt;&#x3D;50、Windows需要chrome&gt;&#x3D;60</p>
+</li>
+<li><p>Python&gt;&#x3D;3.6</p>
+</li>
+<li><p>Selenium&gt;&#x3D;3.4.*</p>
+</li>
+<li><p>ChromeDriver&gt;&#x3D;2.31</p>
+</li>
+</ul>
+<pre><code class="python"># 配置代码
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+
+chrome_options = Options()
+chrome_options.add_argument(&quot;--headless&quot;)
+chrome_options.add_argument(&quot;disable-gpu&quot;)
+
+# 自己的chrome浏览器路径
+path = r&#39;C:\Program Files\Google\Chrome\Application\chrome.exe&#39;
+chrome_options.binary_location = path
+
+driver = webdriver.Chrome(chrome_options=chrome_options)
+</code></pre>
+<pre><code class="python"># 封装
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+
+def share_driver():
+    chrome_options = Options()
+    chrome_options.add_argument(&quot;--headless&quot;)
+    chrome_options.add_argument(&quot;disable-gpu&quot;)
+
+    # 自己的chrome浏览器路径
+    path = r&#39;C:\Program Files\Google\Chrome\Application\chrome.exe&#39;
+    chrome_options.binary_location = path
+    
+    driver = webdriver.Chrome(chrome_options=chrome_options)
+    return driver
+
+driver = share_driver()
+url = &#39;xx.com&#39;
+driver.get(url)
+</code></pre>
+<hr>
+<h2 id="Requests"><a href="#Requests" class="headerlink" title="Requests"></a>Requests</h2><p>Request是唯一一个非转基因的Python HTTP库</p>
+<h3 id="基本使用-3"><a href="#基本使用-3" class="headerlink" title="基本使用"></a>基本使用</h3><p>官方文档：<a href="http://cn.python_request.org/zh_CN/latest/">http://cn.python_request.org/zh_CN/latest/</a></p>
+<p>快速上手：<a href="http://cn.python_request.org/zh_CN/latest/user/quickstart.html">http://cn.python_request.org/zh_CN/latest/user/quickstart.html</a></p>
+<p>安装：pip install requests</p>
+<p>response的属性以及类型：<code>response = requests.get(url=url)</code></p>
+<ul>
+<li>类型：models.Request</li>
+<li>response.text：获取网站源码</li>
+<li>response.encoding：访问或定制编码方式</li>
+<li>response.url：获取请求的url</li>
+<li>response.content：响应的字节类型</li>
+<li>response.status_code：响应的状态码</li>
+<li>response.headers：响应的头信息</li>
+</ul>
+<h3 id="GET请求-1"><a href="#GET请求-1" class="headerlink" title="GET请求"></a>GET请求</h3><pre><code class="python">import requests
+
+url = &#39;http://www.baidu.com/s?&#39;
+headers = {
+    &#39;User-Agent&#39;: &#39;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36&#39;
+}
+data = {
+    &#39;wd&#39;: &#39;北京&#39;
+}
+response = requests.get(url=url, params=data, headers=headers)
+content = response.text
+
+print(content)
+</code></pre>
+<p>参数使用params传递</p>
+<p>参数无需urlencode编码</p>
+<p>不需要进行请求对象定制</p>
+<p>请求资源中的’?’可以加也可以不加</p>
+<h3 id="POST请求-1"><a href="#POST请求-1" class="headerlink" title="POST请求"></a>POST请求</h3><pre><code class="python">import requests
+import json
+url = &#39;https://fanyi.baidu.com/sug&#39;
+headers = {
+    &#39;User-Agent&#39;: &#39;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36&#39;
+}
+data = {
+    &#39;kw&#39;: &#39;eye&#39;
+}
+response = requests.post(url, headers=headers, data=data)
+content = response.text
+
+obj = json.loads(content, encoding=&#39;utf-8&#39;)
+
+print(obj)
+</code></pre>
+<p>post请求不需要编解码</p>
+<p>post请求的参数是data</p>
+<p>不需要进行请求对象定制</p>
+<h3 id="代理"><a href="#代理" class="headerlink" title="代理"></a>代理</h3><pre><code class="python">import requests
+
+url = &#39;https://fanyi.baidu.com/s&#39;
+headers = {
+    &#39;User-Agent&#39;: &#39;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36&#39;
+}
+data = {
+    &#39;wd&#39;: &#39;ip&#39;
+}
+proxy = {
+    &#39;http&#39;: &#39;xxx&#39;
+}
+response = requests.post(url, headers=headers, data=data, proxies=proxy)
+
+content = response.text
+
+with open(&#39;daili.html&#39;, &#39;w&#39;, encoding=&#39;utf-8&#39;) as fp:
+    fp.write(content)
+</code></pre>
+<h3 id="cookie登录-1"><a href="#cookie登录-1" class="headerlink" title="cookie登录"></a>cookie登录</h3><pre><code class="python">import requests
+from lxml import etree
+
+# 登录页面的url
+url = &#39;https://so.gushiwen.cn/user/login.aspx?from=http://so.gushiwen.cn/user/collect.aspx&#39;
+headers = {
+    &#39;User-Agent&#39;: &#39;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36&#39;
+}
+
+# 获取页面的源码
+response = requests.post(url, headers=headers)
+content = response.text
+
+# 解析页码源码,获取__viewstate,__viewstateGENERATOR
+html_tree = etree.HTML(content)
+__VIEWSTATE = html_tree.xpath(&#39;//input[@name=&quot;__VIEWSTATE&quot;]/@value&#39;)
+__VIEWSTATEGENERATOR = html_tree.xpath(&#39;//input[@name=&quot;__VIEWSTATEGENERATOR&quot;]/@value&#39;)
+
+# 获取验证码图片地址
+imgCode = html_tree.xpath(&#39;//img[@id=&quot;imgCode&quot;]/@src&#39;)[0]
+code_url = &#39;https://so.gushiwen.cn/&#39; + imgCode
+
+# requests里面的session方法,通过session返回值就能使请求变成一个对象
+session = requests.session()
+# 验证码的url的内容
+response_code = session.get(code_url)
+# 图片下载需要使用功能二进制数据
+content_code = response_code.content
+with open(&#39;code.jpg&#39;, &#39;wb&#39;) as fp:
+    # 写入图片
+    fp.write(content_code)
+
+code_name = input(&#39;验证码:&#39;)
+
+# 点击登录
+url_post = &#39;https://so.gushiwen.cn/user/login.aspx?from=http%3a%2f%2fso.gushiwen.cn%2fuser%2fcollect.aspx&#39;
+data_post = {
+    &#39;__VIEWSTATE&#39;: __VIEWSTATE[0],
+    &#39;__VIEWSTATEGENERATOR&#39;: __VIEWSTATEGENERATOR[0],
+    &#39;from&#39;: &#39;http://so.gushiwen.cn/user/collect.aspx&#39;,
+    &#39;email&#39;: &#39;root@qq.com&#39;,
+    &#39;pwd&#39;: &#39;root&#39;,
+    &#39;code&#39;: code_name,
+    &#39;denglu&#39;: &#39;登录&#39;
+}
+response_post = session.post(url=url_post, headers=headers, data=data_post)
+content_post = response_post.text
+
+with open(&#39;geshiwen.html&#39;, &#39;w&#39;, encoding=&#39;utf-8&#39;) as fp:
+    fp.write(content_post)
+</code></pre>
+<p>通过模拟cookie登录古诗文网站，需要注意隐藏域和验证码问题</p>
+<hr>
+<h2 id="Scrapy"><a href="#Scrapy" class="headerlink" title="Scrapy"></a>Scrapy</h2><p>scrapy是一个为了爬取网站数据，提供结构性数据而编写的应用框架。可以应用在包括数据挖掘，信息处理或存储历史数据等一系列的程序过程</p>
+<p>安装scrapy：pip install scrapy</p>
+<h3 id="项目组成"><a href="#项目组成" class="headerlink" title="项目组成"></a>项目组成</h3><blockquote>
+<p>spiders</p>
+<blockquote>
+<p>_<em>init.py</em>_</p>
+<p>自定义爬虫文件.py（由我们自己创建，是实现爬虫核心功能的文件）</p>
+</blockquote>
+<p>_<em>init</em>_.py</p>
+<p>item.py（定义数据结构的地方，是一个继承自scrapy.Item的类）</p>
+<p>middlewares.py（中间件，代理）</p>
+<p>pipeline.py（管道模式，里面只有一个类，用于处理下载数据的后需处理，默认是300优先级，值越小优先级越高（1-1000））</p>
+<p>settings.py（配置文件）</p>
+</blockquote>
+<h4 id="scrapy项目的创建和运行"><a href="#scrapy项目的创建和运行" class="headerlink" title="scrapy项目的创建和运行"></a>scrapy项目的创建和运行</h4><ul>
+<li><p>创建爬虫项目：<code>scrapy startproject 项目名</code></p>
+<p>项目名不允许使用数字开头，也不允许出现中文</p>
+</li>
+<li><p>创建爬虫文件：</p>
+<p>在spiders文件夹中创建爬虫文件：<code>cd 项目名\项目名\spiders</code></p>
+<p>创建爬虫文件：<code>scrapy genspider 爬虫名字 爬取网页</code></p>
+</li>
+<li><p>运行爬虫代码：<code>scrapy crawl 爬虫名字</code></p>
+</li>
+</ul>
+<p>获取响应字符串：<code>response.text</code></p>
+<p>获取二进制数据：<code>response.body</code></p>
+<p>直接使用xpath方法解析response内容：<code>response.xpath</code></p>
+<p>提取seletor对象的data属性值：<code>response.extract()</code></p>
+<p>提取seletor列表的第一个数据：<code>response.extract_first()</code></p>
+<h4 id="scrapy架构组成"><a href="#scrapy架构组成" class="headerlink" title="scrapy架构组成"></a>scrapy架构组成</h4><ul>
+<li>引擎：自动运行，无需关注，会自动组织所有的请求对象，分发给下载器</li>
+<li>下载器：从引擎处获取到请求对象后，请求数据</li>
+<li>spiders：Spiders类定义了如何爬取某个（或某些）网站。包括了爬取动作（例如：是否跟进链接）以及如何从网页的内容中提取结构化数据（爬取Items）</li>
+<li>调度器：有自己的调度规则，无需关注</li>
+<li>管道（Item pipelines）：最终处理数据的管道，会预留接口供我们处理数据（Item用于定义数据结构，piplines用于下载数据）</li>
+</ul>
+<p>当Item在spider中被收集之后，它将会被传递到Item pipeline，一些组件会按照一定的顺序执行对Item的处理每个item pipeline组件（有时称之为”Item pipeline”）是实现了简单方法的Python类。他们接收到Item并通过它执行一些行为，同时也决定此Item是否继续通过pipeline，或是被丢弃而不再进行处理</p>
+<p>Item pipline的一些应用：</p>
+<ul>
+<li>清理HTML数据</li>
+<li>验证爬虫的数据（检查Item包含某些字段）</li>
+<li>查重（并丢弃）</li>
+<li>将爬取结果保存到数据库中</li>
+</ul>
+<h4 id="scrapy工作原理"><a href="#scrapy工作原理" class="headerlink" title="scrapy工作原理"></a>scrapy工作原理</h4><div align="center">
+    <img src="爬虫/scrapy工作原理.png" style="zoom:50%" alt="scrapy工作原理"/>
+</div>
+
+
+<div align="center">
+    <img src="爬虫/scrapy工作原理en.png" style="zoom:50%" alt="scrapy工作原理en"/>
+</div>
+### scrapy shell
+
+<p>Scrapy shell是Scrapy终端，是一个交互终端，供您在未启动spider的情况下尝试及调节您的代码。其本意是用来测试提取数据的代码，不过可以将其作为正常的python终端没在上面测试任何的python代码</p>
+<p>该终端是用来测试XPath或CSS表达式，查看他们的工作方式及从爬取网页中提取的数据，在编写spider时，该终端提供了交互性测试您的表达式代码的功能，免去了每次修改后运行spider的麻烦</p>
+<p>安装ipython：pip install ipython</p>
+<p>如果您安装了IPython，Scrapy终端将使用IPython（代替标准的Python终端）。IPython终端与其他相比更为强大，提供智能的自动补全、高亮输出等特性</p>
+<p>使用：</p>
+<ul>
+<li><code>scrapy shell www.xxx.com</code></li>
+<li><code>scrapy shell http://www.xxx.com</code></li>
+<li><code>scrapy shell &#39;http://www.xxx.com&#39;</code></li>
+<li><code>scrapy shell &#39;www.xxx.com&#39;</code></li>
+</ul>
+<h3 id="yield"><a href="#yield" class="headerlink" title="yield"></a>yield</h3><p>带有yield的函数不再是一个普通函数，而是一个生成器generator，可用于迭代</p>
+<p>yield是一个类似return的关键字，迭代一次遇到yield时就返回yield后面（右边）的值。重点是：下一次迭代时，从上一次迭代遇到的yield后面的代码（下一行）开始执行</p>
+<p>简要理解：yield就是return返回一个值，并记住这个返回的位置，下次迭代就从这个位置后（下一行）开始</p>
+<pre><code class="python"># 爬取当当网某类型图书的图片书名价格
+# 自定义.py
+
+import scrapy
+from dangdang.items import DangdangItem
+
+
+class DangSpider(scrapy.Spider):
+    name = &quot;dang&quot;
+    allowed_domains = [&quot;category.dangdang.com&quot;]
+    start_urls = [&quot;http://category.dangdang.com/cp01.01.02.00.00.00.html&quot;]
+
+    base_url = &quot;http://category.dangdang.com/pg&quot;
+    page = 1
+
+    def parse(self, response):
+        # src = //ul[@id=&#39;component_59&#39;]/li//img/@src
+        # name = //ul[@id=&#39;component_59&#39;]/li//img/@alt
+        # price = //ul[@id=&#39;component_59&#39;]/li//p[@class=&#39;price&#39;]/span[1]/text()
+        # 所有的selector的对象 都可以再次调用xpath方法
+        li_list = response.xpath(&quot;//ul[@id=&#39;component_59&#39;]/li&quot;)
+        for li in li_list:
+            # 第一章图片和其他图片的标签属性不一样
+            # 第一章图片的src可以使用 其他图片的地址是data-original
+            src = li.xpath(&quot;.//img/@data-original&quot;).extract_first()
+            if src:
+                src = src
+            else:
+                src = li.xpath(&quot;.//img/@src&quot;).extract_first()
+            name = li.xpath(&quot;.//img/@alt&quot;).extract_first()
+            price = li.xpath(&quot;.//p[@class=&#39;price&#39;]/span[1]/text()&quot;).extract_first()
+            book = DangdangItem(src=src, name=name, price=price)
+            # 获取一个book就将book交给piplines
+            yield book
+
+        # http://category.dangdang.com/pg2-cp01.01.02.00.00.00.html
+        if self.page &lt; 100:
+            self.page += 1
+            url = self.base_url + str(self.page) + &#39;-cp01.01.02.00.00.00.html&#39;
+            # scrapy.Request就是Scrapy的get请求
+            # url请求地址 callback是要执行的函数
+            yield scrapy.Request(url=url, callback=self.parse)
+</code></pre>
+<pre><code class="python"># piplines.py
+
+# Define your item pipelines here
+#
+# Don&#39;t forget to add your pipeline to the ITEM_PIPELINES setting
+# See: https://docs.scrapy.org/en/latest/topics/item-pipeline.html
+
+
+# useful for handling different item types with a single interface
+from itemadapter import ItemAdapter
+import urllib.request
+
+
+# 如果想使用管道,需要咋settings中开启
+class DangdangPipeline:
+    def open_spider(self, spider):
+        self.file = open(&#39;dangdang.json&#39;, &#39;w&#39;, encoding=&#39;utf-8&#39;)
+
+    # item就是yield后面的对象
+    def process_item(self, item, spider):
+        self.file.write(str(item) + &#39;\n&#39;)
+        return item
+
+    def close_spider(self, spider):
+        self.file.close()
+
+
+# 多条管道同时开启
+# 定义管道类 在settings中开启管道
+class DangdangPipeline2:
+    def process_item(self, item, spider):
+        url = &#39;http:&#39; + item.get(&#39;src&#39;)
+        filename = &#39;./books/&#39; + item.get(&#39;name&#39;) + &#39;.jpg&#39;
+        urllib.request.urlretrieve(url=url, filename=filename)
+        # urllib.request.urlretrieve(url=url, filename=filename)
+        return item
+</code></pre>
+<pre><code class="python"># items.py
+
+# Define here the models for your scraped items
+#
+# See documentation in:
+# https://docs.scrapy.org/en/latest/topics/items.html
+
+import scrapy
+
+
+class DangdangItem(scrapy.Item):
+    # define the fields for your item here like:
+    # name = scrapy.Field()
+    # 下载的数据内容
+    # 图片
+    src = scrapy.Field()
+    # 名字
+    name = scrapy.Field()
+    # 价格
+    price = scrapy.Field()
+</code></pre>
+<h3 id="CrawlSpider"><a href="#CrawlSpider" class="headerlink" title="CrawlSpider"></a>CrawlSpider</h3><p>继承自scrapy.Spider</p>
+<p>CrawlSpider可以定义规则，在解析html内容的时候，可以根据链接规则提取出指定的链接，然后再向这些链接发送请求。如果有需要跟进链接需求，爬取网站之后需要提取链接再次进行爬取，可以使用CrawlSpider</p>
+<p>提取链接：<code>scrapy.linkextractors.LinkExtractor</code></p>
+<ul>
+<li>正则表达式：<code>allow = ()</code></li>
+<li>XPath：<code>restrict_xpaths = ()</code></li>
+<li>选择器：<code>restrict_css = ()</code></li>
+</ul>
+<div align="center">
+    <img src="爬虫/CrawlSpider.png" style="zoom:75%" alt="CrawlSpider"/>
+</div>
+
+<ul>
+<li>提取链接：<code>link.extract_links(response)</code></li>
+</ul>
+<h3 id="日志信息与日志等级"><a href="#日志信息与日志等级" class="headerlink" title="日志信息与日志等级"></a>日志信息与日志等级</h3><p>日志级别：</p>
+<ul>
+<li>CRITICAL：严重错误</li>
+<li>ERROR：一般错误</li>
+<li>WARNING：警告</li>
+<li>INFO：一般信息</li>
+<li>DEBUG：调试信息</li>
+</ul>
+<p>默认的日志等级为DEBUG，只要出现DEBUG或DEBUG以上等级的日志全部打印</p>
+<p>settings.py文件设置：</p>
+<ul>
+<li>LOG_FILE：将屏幕显示的信息全部记录在文件中，屏幕不在显示，文件后缀为.log</li>
+<li>LOG_LEVEL：设置日志显示等级，就是显示哪些，不显示哪些</li>
+</ul>
+<h3 id="POST请求-2"><a href="#POST请求-2" class="headerlink" title="POST请求"></a>POST请求</h3><pre><code class="python">class TestSpider(scripy.Spider):
+    name = &#39;test&#39;
+    allow_domains = [&#39;xxx&#39;]
+    def start_requests(self):
+        url = &#39;xxx&#39;
+        data = {
+            &#39;xx&#39;: &#39;xx&#39;
+        }
+        yield scrapy.FormRequest(url=url, formdata=data, callback=self.parse_second)
+    def parse_second(self, response):
+        content = response.text
+        obj = json.loads(content, encoding=&#39;utf-8&#39;)
+</code></pre>
